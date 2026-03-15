@@ -1,17 +1,9 @@
 {
-  "name": "eentry-renewal",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "eentry-website",
+  "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/tailwind": "^6.0.2",
-    "@tailwindcss/vite": "^4.1.14",
-    "astro": "^5.14.6",
-    "tailwindcss": "^3.4.18"
+    "dev": "npx serve . -l 3000",
+    "build": "echo 'Static site — no build step required'"
   }
 }
