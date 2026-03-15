@@ -1,7 +1,9 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://eentry.unfix.co.jp',
-  base: '/',            // ✅ サブドメインではルート扱い
+  site: process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : 'https://eentry.co.jp',
+  base: '/',
   output: 'static',
 });
