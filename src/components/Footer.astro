@@ -1,0 +1,130 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3 class="footer-logo">
+          <span class="logo-icon">
+ <img src="/images/logo.svg" width="100" alt="eEntry" class="logo-image">
+        </h3>
+        <p class="footer-description">
+          イーエントリー株式会社は、グローバル進出支援と経営・ITコンサルティングで<br class="desktop-only">
+          企業の成長をサポートします。
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h4>サービス</h4>
+        <ul>
+          <li><a href="/services#global">グローバル進出コンサルティング</a></li>
+          <li><a href="/services#consulting">経営／ITコンサルタント派遣</a></li>
+          <li><a href="/services#social">社会的事業支援</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>会社情報</h4>
+        <ul>
+          <li><a href="/about">会社概要</a></li>
+          <li><a href="/access">アクセス</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2004-{currentYear} eEntry Corporation. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: rgba(10, 14, 39, 0.6);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
+    margin-top: 4rem;
+    padding: 3rem 0 1.5rem;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-section h3,
+  .footer-section h4 {
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.5rem;
+  }
+
+  .logo-icon {
+    font-style: italic;
+  }
+
+  .footer-description {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-top: 0.5rem;
+  }
+
+  .footer-section ul {
+    list-style: none;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-section a {
+    color: var(--color-text-muted);
+    transition: color 0.3s ease;
+  }
+
+  .footer-section a:hover {
+    color: var(--color-primary);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .desktop-only {
+    display: inline;
+  }
+
+  @media (max-width: 768px) {
+    footer {
+      padding: 2rem 0 1rem;
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .desktop-only {
+      display: none;
+    }
+
+    .footer-description {
+      font-size: 0.9rem;
+    }
+  }
+</style>

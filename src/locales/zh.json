@@ -1,0 +1,57 @@
+{
+  "nav": {
+    "home": "首?",
+    "services": "??内容",
+    "about": "公司概况",
+    "access": "交通指南",
+    "contact": "?系我?"
+  },
+  "services": {
+    "wellness": "健康事?",
+    "global": "全球?展咨?",
+    "consulting": "管理与IT??派遣",
+    "social": "社会事?支持"
+  },
+  "hero": {
+    "title": "通往健康与全球?展之?",
+    "subtitle": "我?提供基于健康技?的?新解决方案，支持企?向海外?展",
+    "cta": "?系我?"
+  },
+  "about": {
+    "title": "公司概况",
+    "name": "公司名称",
+    "established": "成立日期",
+    "capital": "注册?本",
+    "representative": "法定代表人",
+    "address": "地址",
+    "business": "??内容",
+    "businessItems": [
+      "健康事?",
+      "全球?展咨?",
+      "管理与IT??派遣",
+      "社会事?支持"
+    ]
+  },
+  "access": {
+    "title": "交通指南",
+    "address": "地址",
+    "nearest": "最近?站",
+    "walkTime": "?行??",
+    "minutes": "分?"
+  },
+  "contact": {
+    "title": "?系我?",
+    "name": "姓名",
+    "email": "?子?件",
+    "subject": "主?",
+    "message": "留言",
+    "send": "?送",
+    "required": "必填",
+    "success": "?的留言已?送成功。我?会尽快回??。",
+    "error": "?送失?。?重?。"
+  },
+  "footer": {
+    "company": "eEntry株式会社",
+    "copyright": "版?所有"
+  }
+}

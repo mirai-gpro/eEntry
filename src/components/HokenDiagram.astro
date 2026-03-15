@@ -1,0 +1,408 @@
+---
+// Astro Component Script (JavaScriptの記述は不要なため空)
+---
+
+<div class="diagram-wrapper">
+    <div class="legend">
+        <div class="legend-item">
+            <div class="color-box iris"></div>
+            <p>がん共済アイリスのカバー範囲 </p>
+        </div>
+        <div class="legend-item">
+            <div class="color-box general"></div>
+            <p>一般的ながん保険のカバー範囲 </p>
+        </div>
+    </div>
+
+    <div class="diagram-container">
+        <div class="coverage-group">
+
+            <div class="box pink-box box-risk-check">
+                <p class="main-label">がん<br>リスク<br>検査</p>
+            </div>
+
+            <div class="box pink-box box-lump-sum-outer">
+                <div class="box yellow-box box-lump-sum-inner">
+                    <p class="main-label">一時金</p>
+                </div>
+            </div>
+
+            <div class="box pink-box box-standard-treatment">
+                <p class="main-label">標準治療 </p>
+                <div class="box yellow-box box-hospitalization">
+                    <p class="main-label">入院・手術費 </p>
+                </div>
+            </div>
+
+            <div class="box pink-box box-free-treatment-outer">
+                <p class="large-text">自由診療 </p>
+
+                <div class="box pink-box box-hospital-free-treatment">
+                    <p class="main-label">(大病院の)自由診療 </p>
+                    <div class="box yellow-box box-advanced-medicine">
+                        <p class="small-text-advanced">先進医療</p>
+                    </div>
+                </div>
+
+                <div class="box pink-box box-fraud-area">
+                    <p>99%が詐欺と<br>言われる領域 </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-coverage-iris">
+            <p class="bottom-text">掛金と同額のECサイトポイント</p>
+        </div>
+    </div>
+
+    <div class="explanations">
+        <div class="explanation-group">
+            <div class="explanation-box explanation-risk-check">
+                <p>リスク度に応じ精密検査費用20万円まで補償</p>
+                <p class="highlight-text">これだけでも価値あり</p>
+            </div>
+
+            <div class="explanation-box explanation-lump-sum">
+                <p>オプションで100万円</p>
+                <p class="sub-text">がん宣告された時、どうでもよいと思う部分</p>
+            </div>
+
+            <div class="explanation-box explanation-standard-treatment">
+                <p>実費の全額補償！</p>
+                <p class="sub-text">抗がん剤治療、放射線治療の多くは通院で実施するため、実費補償は必須</p>
+            </div>
+
+            <div class="explanation-box explanation-free-treatment">
+                <p>大病院が提供する自由診療を補償（それ以外の自由診療はオプションで補償、なお先進医療は適用ケースが少なすぎて補償されるケースは極めて限定的です。）</p>
+                <p class="sub-text">大病院の自由診療では以下のような治療が補償されご自身の治療法の選択肢となりえます。</p>
+                <p class="sub-text">・セカンドオピニオン（3?4万円／回）</p>
+                <p class="sub-text">・（X線より高度な）陽子線治療、重粒子線治療</p>
+                <p class="sub-text">・ゲノム治療（がん遺伝子パネル検査、がん遺伝子血液検査、分子標的薬）</p>
+                <p class="sub-text">・光療法、温熱療法、ALA-PDD、等</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* 全体のラッパー */
+.diagram-wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 凡例 - 図とは独立した配置 */
+.legend {
+    width: fit-content;
+    font-size: 12px;
+    line-height: 1.5;
+    background-color: white;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.legend-item p {
+    margin: 0;
+    font-weight: bold;
+    color: #333 !important;
+}
+.color-box {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    border: 1px solid #333;
+    flex-shrink: 0;
+}
+.legend-item .general {
+    background-color: #fff9e6;
+}
+.legend-item .iris {
+    background-color: #f7d6d6;
+}
+
+/* 図のコンテナ - 横方向一杯に広がる */
+.diagram-container {
+    width: 100%;
+    position: relative;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    padding-bottom: 80px;
+    margin-bottom: 30px;
+}
+
+/* メインのブロック群（上段）をFlexboxで横並びにする */
+.coverage-group {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* 汎用的なボックスのスタイル */
+.box {
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 1px solid #333;
+    line-height: 1.4;
+}
+
+/* 色の定義 */
+.pink-box {
+    background-color: #f7d6d6;
+}
+.yellow-box {
+    background-color: #fff9e6;
+}
+
+/* テキストのスタイル */
+.main-label {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333 !important;
+    line-height: 1.3;
+}
+.large-text {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #333 !important;
+}
+.small-text-advanced {
+    font-size: 10px;
+    margin: 0;
+    white-space: nowrap;
+    line-height: 1.2;
+    font-weight: bold;
+    color: #333 !important;
+}
+
+/* 各ブロックのサイズと配置 */
+.box-risk-check {
+    width: 100px;
+    height: 150px;
+    border: 1px dashed #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.box-lump-sum-outer {
+    width: 120px;
+    height: 150px;
+    border: 1px dashed #333;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.box-lump-sum-inner {
+    width: 90%;
+    height: 90%;
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333;
+}
+
+/* 標準治療 */
+.box-standard-treatment {
+    width: 180px;
+    height: 150px;
+    position: relative;
+    flex-shrink: 0;
+}
+.box-hospitalization {
+    width: 160px;
+    height: 60px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 自由診療 (全体の点線枠) - 枠線を細く */
+.box-free-treatment-outer {
+    flex-grow: 1;
+    height: 150px;
+    position: relative;
+    padding: 10px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px dashed #333;
+}
+
+/* (大病院の)自由診療 */
+.box-hospital-free-treatment {
+    width: 50%;
+    height: 70%;
+    position: absolute;
+    top: 40px;
+    left: 15px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #333;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 先進医療の黄色枠 */
+.box-advanced-medicine {
+    width: 70px;
+    height: 25px;
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    padding: 2px;
+    text-align: center;
+    border: 1px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 99%が詐欺と言われる領域 - 黒字細字に変更 */
+.box-fraud-area {
+    width: 40%;
+    height: 50%;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    padding: 10px;
+    text-align: center;
+    border: none;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-fraud-area p {
+    font-weight: normal !important;
+    font-size: 13px;
+    color: #000 !important;
+}
+
+/* 下部の大きな括弧の線 (疑似要素で作成) - 両端を閉じる */
+.diagram-container::after {
+    content: "";
+    position: absolute;
+    bottom: 55px;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    border: solid #333;
+    border-width: 0 2px 2px 2px;
+    border-radius: 0 0 10px 10px;
+}
+
+/* 下部の説明ブロック (ピンクの枠) - 線と被らないように下に */
+.bottom-coverage-iris {
+    width: 350px;
+    height: auto;
+    background-color: #f7d6d6;
+    border: 2px solid #333;
+    padding: 8px 15px;
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+.bottom-coverage-iris .bottom-text {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333 !important;
+}
+
+/* 説明文エリア - 図の下に配置し、図と同じ横幅で配置 */
+.explanations {
+    width: 100%;
+    background-color: white;
+    padding: 0;
+}
+
+.explanation-group {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.explanation-box {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #999;
+    background-color: #f9f9f9;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.explanation-box p {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.explanation-box p:last-child {
+    margin-bottom: 0;
+}
+
+.explanation-box .sub-text {
+    font-size: 11px;
+    color: #555;
+}
+
+/* 「これだけでも価値あり」を太字赤に */
+.explanation-box .highlight-text {
+    font-size: 12px;
+    font-weight: bold;
+    color: #d00 !important;
+}
+
+/* 各説明ボックスの幅を図の各要素と対応させる */
+.explanation-risk-check {
+    width: 100px;
+    flex-shrink: 0;
+}
+
+.explanation-lump-sum {
+    width: 120px;
+    flex-shrink: 0;
+}
+
+.explanation-standard-treatment {
+    width: 180px;
+    flex-shrink: 0;
+}
+
+/* 自由診療の説明枠を図の自由診療枠と同じ幅に */
+.explanation-free-treatment {
+    flex-grow: 1;
+}
+</style>

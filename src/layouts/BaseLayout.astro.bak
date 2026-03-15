@@ -1,0 +1,210 @@
+ type "src\layouts\BaseLayout.astro"
+---
+import { ViewTransitions } from 'astro:transitions';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'イーエントリー株式会社 - グローバル進出コンサルティング、経営／ITコンサルタント派遣、社会 的事業支援' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <title>{title} | イーエントリー株式会社</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <ViewTransitions />
+</head>
+<body>
+  <div class="page-wrapper">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </div>
+
+  <canvas id="background-canvas"></canvas>
+</body>
+</html>
+
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --color-primary: #00d4ff;
+    --color-secondary: #0066ff;
+    --color-dark: #0a0e27;
+    --color-darker: #050714;
+    --color-text: #e0e6ed;
+    --color-text-muted: #8892a6;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans JP', sans-serif;
+    background: var(--color-darker);
+    color: var(--color-text);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  #background-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .page-wrapper {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 16px;
+    }
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--color-secondary);
+  }
+
+  /* 見出しサイズを40%縮小 - !importantで強制適用 */
+  h1 {
+    font-size: 110% !important;
+  }
+
+  h2 {
+    font-size: 110% !important;
+  }
+
+  h3 {
+    font-size: 110% !important;
+  }
+
+  h4 {
+    font-size: 110% !important;
+  }
+</style>
+
+<script>
+  // 背景アニメーション
+  const canvas = document.getElementById('background-canvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d')!;
+
+  let width = canvas.width = window.innerWidth;
+  let height = canvas.height = window.innerHeight;
+
+  const particles: Array<{
+    x: number;
+    y: number;
+    vx: number;
+    vy: number;
+    radius: number;
+  }> = [];
+
+  const particleCount = window.innerWidth < 768 ? 30 : 50;
+
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      radius: Math.random() * 2 + 1
+    });
+  }
+
+  function animate() {
+    ctx.fillStyle = 'rgba(5, 7, 20, 0.05)';
+    ctx.fillRect(0, 0, width, height);
+
+    particles.forEach((p, i) => {
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0, 212, 255, 0.6)';
+      ctx.fill();
+
+      // 近くの粒子同士を線で結ぶ
+      for (let j = i + 1; j < particles.length; j++) {
+        const p2 = particles[j];
+        const dx = p.x - p2.x;
+        const dy = p.y - p2.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < 150) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.strokeStyle = `rgba(0, 212, 255, ${0.2 * (1 - distance / 150)})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  });
+</script>
+PS C:\Users\hamad\eentry-renewal>
+
+
+
+
+
+
+
+
+
+
+
+
+
