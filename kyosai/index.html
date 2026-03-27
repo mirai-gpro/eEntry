@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=5">
+  <link rel="stylesheet" href="css/style.css?v=6">
 </head>
 <body>
 
@@ -250,56 +250,57 @@
       <h2 class="sec-title">一般的ながん保険との比較</h2>
     </div>
 
-    <!-- Visual comparison (3 key differences) -->
-    <div class="cmp-visual fi">
+    <!-- Visual comparison table (3 key differences) -->
+    <div class="cmp-visual-wrap fi">
       <p class="cmp-visual-title">がん共済アイリス vs 一般的ながん保険：3つの決定的な違い</p>
-
-      <div class="cmp-visual-header">
-        <span class="cvh-blank"></span>
-        <span class="cvh-iris">がん共済アイリス</span>
-        <span class="cvh-general">一般的ながん保険</span>
-      </div>
-
-      <!-- Row 1: 予防・検査 -->
-      <div class="cmp-visual-row">
-        <div class="cvr-label">がんになる前<br>（予防・検査）</div>
-        <div class="cvr-iris">
-          <div class="cvr-icon">◎</div>
-          <div class="cvr-main">年1回 無料がんリスク検査</div>
-          <div class="cvr-sub">リスクに応じた精密検査費用を最大20万円まで補償</div>
-        </div>
-        <div class="cvr-general">
-          <span class="cvr-icon">✗</span>
-          <span class="cvr-text">検査や予防に対するサポートなし</span>
-        </div>
-      </div>
-
-      <!-- Row 2: 標準治療 -->
-      <div class="cmp-visual-row">
-        <div class="cvr-label">一時金と<br>標準治療<br>（通院への対応力）</div>
-        <div class="cvr-iris">
-          <div class="cvr-icon">◎</div>
-          <div class="cvr-main">実費全額補償</div>
-          <div class="cvr-sub">通院が主流の抗がん剤・放射線治療にかかる実費をフルカバー（＋一時金オプション100万円）</div>
-        </div>
-        <div class="cvr-general">
-          <span class="cvr-icon">⚠</span>
-          <span class="cvr-text">一時金のみ、または入院偏重（通院治療の実費カバーが不十分）</span>
-        </div>
-      </div>
-
-      <!-- Row 3: 自由診療 -->
-      <div class="cmp-visual-row">
-        <div class="cvr-label">自由診療<br>（大病院での<br>高度な選択肢）</div>
-        <div class="cvr-iris">
-          <div class="cvr-icon">◎</div>
-          <div class="cvr-main">大病院の自由診療を補償</div>
-          <div class="cvr-sub">陽子線・重粒子線、ゲノム治療、セカンドオピニオン等、最適な治療の選択肢が広がる</div>
-        </div>
-        <div class="cvr-general">
-          <span class="cvr-icon">✗</span>
-          <span class="cvr-text">先進医療特約のみ（適用ケースが極めて限定的で実態に合わない）</span>
-        </div>
+      <div class="cmp-visual-scroll">
+        <table class="cmp-visual">
+          <thead>
+            <tr>
+              <th class="cvt-blank"></th>
+              <th class="cvt-iris">がん共済アイリス</th>
+              <th class="cvt-general">一般的ながん保険</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cvt-label">がんになる前<br>（予防・検査）</td>
+              <td class="cvt-iris-cell">
+                <span class="cvt-icon">◎</span>
+                <strong>年1回 無料がんリスク検査</strong><br>
+                <span class="cvt-sub">リスクに応じた精密検査費用を最大20万円まで補償</span>
+              </td>
+              <td class="cvt-general-cell">
+                <span class="cvt-icon-x">✗</span>
+                検査や予防に対するサポートなし
+              </td>
+            </tr>
+            <tr>
+              <td class="cvt-label">一時金と<br>標準治療<br>（通院への対応力）</td>
+              <td class="cvt-iris-cell">
+                <span class="cvt-icon">◎</span>
+                <strong>実費全額補償</strong><br>
+                <span class="cvt-sub">通院が主流の抗がん剤・放射線治療にかかる実費をフルカバー（＋一時金オプション100万円）</span>
+              </td>
+              <td class="cvt-general-cell">
+                <span class="cvt-icon-warn">⚠</span>
+                一時金のみ、または入院偏重（通院治療の実費カバーが不十分）
+              </td>
+            </tr>
+            <tr>
+              <td class="cvt-label">自由診療<br>（大病院での<br>高度な選択肢）</td>
+              <td class="cvt-iris-cell">
+                <span class="cvt-icon">◎</span>
+                <strong>大病院の自由診療を補償</strong><br>
+                <span class="cvt-sub">陽子線・重粒子線、ゲノム治療、セカンドオピニオン等、最適な治療の選択肢が広がる</span>
+              </td>
+              <td class="cvt-general-cell">
+                <span class="cvt-icon-x">✗</span>
+                先進医療特約のみ（適用ケースが極めて限定的で実態に合わない）
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
